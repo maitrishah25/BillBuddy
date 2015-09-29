@@ -1,3 +1,7 @@
+$(function() {
+  $( "#datepicker" ).datepicker();
+});
+
 var apiToken = $('#api-token').val();
 $.ajaxSetup({
   headers: {
@@ -32,7 +36,7 @@ var BillView = Backbone.View.extend({
   },
   removeBill: function(){
     this.$el.remove();
-    this.model.set('paid_status', "TRUE");
+    this.model.set('paid_status', true);
     this.model.save();
   }
 })
@@ -45,9 +49,13 @@ var BillListView = Backbone.View.extend({
     var bills = this.collection.models;
     var view;
     for (var i = 0; i < bills.length; i++) {
+      if (bills[i].attributes.paid_status === true) {
+      // render nothing: true;
+    } else if (bills[i].attributes.paid_status === false) {
       view = new BillView({model: bills[i]});
       view.render();
       this.$el.append(view.$el);
+      }
     }
   }
 });
@@ -68,5 +76,5 @@ $('form.new-bill').on('submit', function(e){
     name: newName,
     due_date: newDueDate,
     amount: newAmount
-  });
+  }, {wait: true});
 });
