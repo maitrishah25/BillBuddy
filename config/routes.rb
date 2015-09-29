@@ -1,5 +1,11 @@
 Rails.application.routes.draw do
 
+  namespace :api do
+    # PUT    /api/bills/:id(.:format)      api/bills#update
+    # put '/api/bills/:id' => 'api/bills#update'
+    resources :bills, except: [:new]
+  end
+
   get '/users/profile' => 'users#profile', as: :profile
   get '/users/log_in' => 'users#log_in', as: :log_in
 
