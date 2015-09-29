@@ -72,9 +72,14 @@ $('form.new-bill').on('submit', function(e){
   var newName = $(this).find('input[name="bill[name]"]').val();
   var newDueDate = $(this).find('input[name="bill[due_date]"]').val();
   var newAmount = $(this).find('input[name="bill[amount]"]').val();
+  if (newName != "" && newDueDate != "" && newAmount != "") {
   allTheBills.create({
     name: newName,
     due_date: newDueDate,
     amount: newAmount
-  }, {wait: true});
+    }, {wait: true});
+    this.reset();
+  } else {
+    alert('Please fill in all fields')
+  }
 });
