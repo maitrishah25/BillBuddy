@@ -1,5 +1,9 @@
 class GraphController < ApplicationController
+include SessionsHelper
+
   def index
+    authenticate!
+    @user = current_user
   end
 
   def data

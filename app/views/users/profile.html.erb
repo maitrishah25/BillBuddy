@@ -4,7 +4,7 @@
 
 <%= button_to "Log Out", '/sessions', method: :delete %>
 </header>
-
+<div id="graph"></div>
 <div>
   <form class="new-bill" action="/api/bills" method="post">
     <span class="row"><input type="text" class="text-field col-xs-6" name="bill[name]" placeholder="Name"></span>
@@ -27,5 +27,10 @@
     </tbody>
   </table>
 </div>
+<%= stylesheet_link_tag 'graph' %>
+<!-- <span class="row"><input type="button" value="See Chart" class="chart-button btn btn-default"></span> -->
+
+
+<%= javascript_include_tag 'graph'%>
 
 <%= javascript_include_tag 'users'%>

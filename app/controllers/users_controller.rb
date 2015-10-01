@@ -15,8 +15,6 @@ class UsersController < ApplicationController
   def profile
     authenticate!
     @user = current_user
-    # @bills = Bill.find(:all, :conditions => ["paid_status = FALSE"])
-    # @bills = Bill.where{ bill[:paid_status] == "FALSE"}
   end
 
   def data

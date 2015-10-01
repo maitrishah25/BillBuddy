@@ -1,1 +1,7 @@
-  <svg id="graph"></svg>
+<input type="hidden" id="api-token" value="<%= @user.token %>">
+
+
+<%= stylesheet_link_tag 'graph' %>
+
+  <div id="graph"></div>
+<%= javascript_include_tag 'graph'%>
