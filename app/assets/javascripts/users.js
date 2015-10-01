@@ -29,7 +29,7 @@ var BillView = Backbone.View.extend({
       '<td>' + due_date + '</td>' +
       '<td>' + amount + '</td>'
       // '<td>' + user_id + '</td>'
-      + '<td>' + '<button class="remove">' + 'PAID' + '</button>' + '</td>'
+      + '<td>' + '<button class="remove">' + 'Paid' + '</button>' + '</td>'
     )
   },
   events: {
