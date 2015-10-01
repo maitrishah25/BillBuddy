@@ -15,3 +15,11 @@
 //= require turbolinks
 //= require underscore
 //= require backbone
+//= require d3
+//= require d3tip
+//= require bootstrap.min
+//= require picker
+//= require picker.date
+
+// require_tree .
+// removed the = on the tree so 500 on api/bills would go away

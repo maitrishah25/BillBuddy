@@ -1,3 +1,27 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+$padding: 10%;
+$mintgreen: #5FECA0;
+
+.bills-table {
+  padding: 0 $padding;
+}
+
+.new-bill {
+  padding: 3% $padding;
+}
+
+.button {
+  // background-color: $mintgreen;
+}
+
+h3.welcome {
+  margin: 0;
+  padding: 0;
+}
+
+.header {
+  padding: 3%;
+}

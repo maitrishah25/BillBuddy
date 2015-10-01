@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  get '/graph' => 'graph#index'
+  get '/graph/data', :defaults => { :format => 'json' }
+
   namespace :api do
     # PUT    /api/bills/:id(.:format)      api/bills#update
     # put '/api/bills/:id' => 'api/bills#update'
@@ -13,6 +16,7 @@ Rails.application.routes.draw do
   delete '/sessions' => 'sessions#destroy'
 
   resources :users, only: [:new, :create]
+
   # resources :sessions, only: [:create, :destroy]
 
   # The priority is based upon order of creation: first created -> highest priority.

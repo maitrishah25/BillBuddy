@@ -19,6 +19,14 @@ class UsersController < ApplicationController
     # @bills = Bill.where{ bill[:paid_status] == "FALSE"}
   end
 
+  def data
+    respond_to do |format|
+      format.json {
+        render :json => [1,2,3,4,5]
+      }
+    end
+  end
+
 # log_in GET  /users/log_in(.:format)  users#log_in
   def log_in
   end

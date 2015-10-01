@@ -1,6 +1,7 @@
-$(function() {
-  $( "#datepicker" ).datepicker();
-});
+  $('.datepicker').pickadate();
+// $(function() {
+  // $( "#datepicker" ).datepicker();
+// });
 
 var apiToken = $('#api-token').val();
 $.ajaxSetup({
