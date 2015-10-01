@@ -2,11 +2,12 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$margin: 5px;
 $padding: 10%;
 $mintgreen: #5FECA0;
 
 .bills-table {
-  padding: 0 $padding;
+  padding: 3% $padding;
 }
 
 .new-bill {
@@ -24,4 +25,19 @@ h3.welcome {
 
 .header {
   padding: 3%;
+}
+
+.text-field {
+    border: 3px solid #cccccc;
+    padding: .6em 1em;
+    font-weight: 200;
+    width: 100%;
+    margin: $margin 0;
+}
+
+form.new-bill {
+  display: block;
+  padding: $padding/3 $padding;
+  background-color: #F7F8F8;
+  align-content: center;
 }
