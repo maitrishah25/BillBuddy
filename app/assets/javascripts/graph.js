@@ -80,67 +80,6 @@ function error(){
   console.log('error');
 }
 
-// // function to handle pie
-//
-// var width = 960,
-//     height = 500,
-//     radius = Math.min(width, height) / 2;
-//
-// var color = d3.scale.ordinal()
-//     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
-//
-// var arc = d3.svg.arc()
-//     .outerRadius(radius - 10)
-//     .innerRadius(radius - 70);
-//
-// var pie = d3.layout.pie()
-//     .sort(null)
-//     .value(function(bill) { return bill.amount; });
-//
-// var svg = d3.select("#pie").append("svg")
-//     .attr("width", width)
-//     .attr("height", height)
-//   .append("g")
-//     .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
-//
-//     $.ajax({
-//       type: 'GET',
-//       contentType: 'application/json',
-//       url: '/api/bills',
-//       dataType: 'json',
-//       success: function(jsonData){
-//         pie(jsonData);
-//       },
-//       error: function(result){
-//         error();
-//       }
-//     });
-//     function pie(jsonData){
-//
-//       var billsData = jsonData;
-//       var field = d3.select('#pie');
-//
-//   // data.forEach(function(bill) {
-//   //   bill.amount = +bill.amount;
-//   // });
-//
-//   var g = svg.selectAll(".arc")
-//       .data(pie(billsData))
-//     .enter().append("g")
-//       .attr("class", "arc");
-//
-//   g.append("path")
-//       .attr("d", arc)
-//       .style("fill", function(d) { return color(d.data.name); });
-//
-//   g.append("text")
-//       .attr("transform", function(d) { return "translate(" + arc.centroid(d) + ")"; })
-//       .attr("dy", ".35em")
-//       .style("text-anchor", "middle")
-//       .text(function(d) { return d.data.name; });
-//
-// };
-
 $.ajax({
   type: 'GET',
   contentType: 'application/json',
@@ -157,22 +96,24 @@ function pie(jsonData){
 
   var billsData = jsonData;
 
-  var w = 300,                        //width
-      h = 300,                            //height
-      r = 120,                            //radius
+  var w = 230,                        //width
+      h = 230,                            //height
+      r = Math.min(w, h) / 2,                            //radius
+      labelr = r + 5, // radius for label anchor
+
     color = d3.scale.category20c();     //builtin range of colors
     // color = d3.scale.ordinal()
     //     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
     var vis = d3.select("#pie")
         .append("svg:svg")              //create the SVG element inside the <body>
         .data([billsData])                   //associate our data with the document
-            .attr("width", w)           //set the width and height of our visualization (these will be attributes of the <svg> tag
-            .attr("height", h)
+            .attr("width", w+150)           //set the width and height of our visualization (these will be attributes of the <svg> tag
+            .attr("height", h+50)
         .append("svg:g")                //make a group to hold our pie chart
-            .attr("transform", "translate(" + r + "," + r + ")")    //move the center of the pie chart from 0, 0 to radius, radius
+            .attr("transform", "translate(" + 190 + "," + 135 + ")")    //move the center of the pie chart from 0, 0 to radius, radius
     var arc = d3.svg.arc()              //this will create <path> elements for us using arc data
         .outerRadius(r)
-        .innerRadius(r-50);
+        .innerRadius(r-30);
     var pie = d3.layout.pie()           //this will create arc data for us given a list of values
         .value(function(d) { return d.amount; });    //we must tell it out to access the value of each element in our data array
     var arcs = vis.selectAll("g.slice")     //this selects all <g> elements with class slice (there aren't any yet)
@@ -182,16 +123,27 @@ function pie(jsonData){
                 .attr("class", "slice");    //allow us to style things in the slices (like text)
         arcs.append("svg:path")
                 .attr("fill", function(d, i) { return color(i); } ) //set the color for each slice to be chosen from the color function defined above
+                .transition()
+                .duration(3000)
                 .attr("d", arc);                                    //this creates the actual SVG path using the associated data (pie) with the arc drawing function
+
+
         arcs.append("svg:text")                                     //add a label to each slice
-                .attr("transform", function(d) {                    //set the label's origin to the center of the arc
-                //we have to make sure to set these before calling arc.centroid
-                d.innerRadius = 0;
-                d.outerRadius = r;
-                return "translate(" + arc.centroid(d) + ")";        //this gives us a pair of coordinates like [50, 50]
+        .attr("transform", function(d) {
+                var c = arc.centroid(d),
+                    x = c[0],
+                    y = c[1],
+                    // pythagorean theorem for hypotenuse
+                    h = Math.sqrt(x*x + y*y);
+                return "translate(" + (x/h * labelr) +  ',' +
+                   (y/h * labelr) +  ")";
             })
-            .attr("text-anchor", "top")                          //center the text on it's origin
-            .text(function(d, i) { return billsData[i].name; });        //get the label from our original data array
-            // .attr("transform", "translate(" + (r*1.1) + "," + (r*1.1) + ")");    //move the center of the pie chart from 0, 0 to radius, radius
+            .attr("dy", ".35em")
+            .attr("text-anchor", function(d) {
+                // are we past the center?
+                return (d.endAngle + d.startAngle)/2 > Math.PI ?
+                    "end" : "start";
+            })
+            .text(function(d, i) { return billsData[i].name; });
 
           }

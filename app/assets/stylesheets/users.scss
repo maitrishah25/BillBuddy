@@ -24,11 +24,12 @@ h3.welcome {
 }
 
 .header {
-  padding: 3%;
+  padding: 3% 3% 0 3%;
 }
 
 .text-field {
     border: 3px solid #cccccc;
+    border-radius: 3px;
     padding: .6em 1em;
     font-weight: 200;
     width: 100%;
@@ -48,6 +49,10 @@ form.new-bill {
 }
 
 #pie {
-	 padding: $padding/3 $padding;
+	 padding: $padding/4 $padding;
   //  border: 1px solid #cccccc;
+}
+
+.slice {
+  // color: yellow;
 }
