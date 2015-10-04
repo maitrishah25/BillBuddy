@@ -68,17 +68,6 @@ function draw(jsonData){
                  .append("g")
                  .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-    //  var matrix = this.getScreenCTM()
-    //                   .translate(+this.getAttribute("cx"),
-    //                   +this.getAttribute("cy"));
-    // //You can use screen coordinates directly to position
-    // //a fixed-position tooltip
-    // tip
-    //     .style("left",
-    //            (matrix.e) + "px")
-    //     .style("top",
-    //            (matrix.f + 3) + "px");
-
      svg.call(tip);
 
 

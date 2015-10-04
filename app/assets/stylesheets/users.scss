@@ -18,6 +18,21 @@ $mintgreen: #5FECA0;
   // background-color: $mintgreen;
 }
 
+h1 {
+  // text-align: center;
+}
+
+div.new {
+  background-image: url('looking_over_mountain.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 0 -150px;
+  height: 800px;
+  width: 100%;
+  // height: 800px;
+  // width: 1200px;
+}
+
 h3.welcome {
   margin: 0;
   padding: 0;
