@@ -29,9 +29,9 @@
   <h3 class="welcome col-xs-11">Welcome Back <%= @user.username %> </h3>
   <!-- <%= button_to "Log Out", '/sessions', method: :delete %> -->
 </header>
-<div class="row">
+<div class="row graphs">
   <div id="graph" class="col-xs-6"></div>
-  <div id="pie" class="col-xs-6"></div>
+  <div id="pie" class="col-xs-4"></div>
 </div>
 <div>
   <form class="new-bill" action="/api/bills" method="post">

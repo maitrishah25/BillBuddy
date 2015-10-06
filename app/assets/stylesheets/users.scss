@@ -59,15 +59,16 @@ form.new-bill {
 }
 
 #graph {
-	 padding: $padding/3 $padding;
+	 padding: $padding/3 ;
   //  border: 1px solid #cccccc;
 }
 
 #pie {
-	 padding: $padding/4 $padding;
+	 padding: $padding/4 ;
   //  border: 1px solid #cccccc;
 }
 
-.slice {
-  // color: yellow;
+.graphs {
+  // width: 95%;
+  padding-left: 2%;
 }

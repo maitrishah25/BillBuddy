@@ -29,21 +29,31 @@ function draw(jsonData){
       width = 575 - margin.left - margin.right,
       height = 50 - margin.top - margin.bottom;
 
-  field.selectAll('section')
+  field.selectAll('article')
        .data(billsData)
        .enter()
-       .append('section');
+       .append('article')
 
-  field.selectAll('section')
+  field.selectAll('article')
        .data(billsData)
-       .text(function(bill){return (bill.name);})
-       .attr("transform", "translate(" + -80 + "," + 0 + ")");    //move the center of the pie chart from 0, 0 to radius, radius
+       .each(function(bill){
 
+         d3.select(this)
+           .append('span')
+           .attr('class', 'info')
+           .text(bill.name)
+
+         d3.select(this)
+           .append('section');
+       });
 
   field.selectAll('section')
        .data(billsData)
        .transition()
        .duration(3000)
+      //  .attr("transform", "translate(" + 80 + "," + 0 + ")")
+      //  .style("postion", "absolute")
+      //  .style("left", (d3.pageX+160) + "px")
        .style(
          'width', function(bill){
            return(bill.amount *0.1) + 'px';
@@ -54,29 +64,25 @@ function draw(jsonData){
        .exit()
        .remove();
 
-     var tip = d3.tip()
-       .attr('class', 'd3-tip')
-       .offset([10, -10])
-       .style("z-index", "10")
-       .html(function(d) {
-         return "<strong>Amount:</strong> <span style='color:deeppink'>" + d.amount + "</span>";
-       })
-
-     var svg = d3.select("#graph").append("svg")
-                 .attr("width", width + margin.left + margin.right)
-                 .attr("height", height + margin.top + margin.bottom)
-                 .append("g")
-                 .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
-
-     svg.call(tip);
-
-
-   field.selectAll('section')
-
+ field.selectAll('section')
       .data(billsData)
-      // .enter().append('section')
-      .on('mouseover', tip.show)
-      .on('mouseout', tip.hide)
+      .on('mouseenter', function(d,e){
+        field
+          .append('div')
+          .attr('class', 'tool-tip')
+          .data([d])
+          .style("postion", "absolute")
+          .style("top", (d3.event.pageY-130) + "px")
+          .style("left", function(bill){
+            return (bill.amount *0.1 + 10) + "px"
+          })
+          .html(function(d){
+            return "<strong>Amount:</strong> <span style='color:deeppink'> $" + d.amount + "</span>";
+          });
+      })
+      .on('mouseleave', function(){
+        d3.selectAll('.tool-tip').remove();
+      });
 
 }
 function error(){
@@ -110,9 +116,9 @@ function pie(jsonData){
               .append("svg:svg")              //create the SVG element inside the <body>
               .data([billsData])                   //associate our data with the document
               .attr("width", w+150)           //set the width and height of our visualization (these will be attributes of the <svg> tag
-              .attr("height", h+50)
+              .attr("height", h+70)
               .append("svg:g")                //make a group to hold our pie chart
-              .attr("transform", "translate(" + 190 + "," + 135 + ")");    //move the center of the pie chart from 0, 0 to radius, radius
+              .attr("transform", "translate(" + 190 + "," + 155 + ")");    //move the center of the pie chart from 0, 0 to radius, radius
   var arc = d3.svg.arc()              //this will create <path> elements for us using arc data
               .outerRadius(r)
               .innerRadius(r-30);
