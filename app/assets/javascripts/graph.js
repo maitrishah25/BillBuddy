@@ -15,6 +15,7 @@ $.ajax({
   url: '/api/bills',
   dataType: 'json',
   success: function(jsonData){
+    $('#graph').removeClass('loading');
     draw(jsonData);
   },
   error: function(result){
@@ -95,6 +96,7 @@ $.ajax({
   url: '/api/bills',
   dataType: 'json',
   success: function(jsonData){
+    $('#pie').removeClass('loading');
     pie(jsonData);
   },
   error: function(result){

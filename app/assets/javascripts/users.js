@@ -1,7 +1,13 @@
-  $('.datepicker').pickadate();
-// $(function() {
-  // $( "#datepicker" ).datepicker();
+// $(document).ready(function() {
+//
+//   console.log('stuff');
+//     $('#graphs').load(function(){
+//       console.log(this);
+//       $(this).removeClass('loading');
+//     });
 // });
+
+$('.datepicker').pickadate();
 
 var apiToken = $('#api-token').val();
 $.ajaxSetup({
@@ -29,7 +35,7 @@ var BillView = Backbone.View.extend({
       '<td>' + due_date + '</td>' +
       '<td>' + amount + '</td>'
       // '<td>' + user_id + '</td>'
-      + '<td>' + '<button class="remove">' + 'Paid' + '</button>' + '</td>'
+      + '<td>' + '<button class="remove btn btn-default">' + 'Paid' + '</button>' + '</td>'
     )
   },
   events: {

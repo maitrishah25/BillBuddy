@@ -60,15 +60,30 @@ form.new-bill {
 
 #graph {
 	 padding: $padding/3 ;
+   height: 400px;
+
   //  border: 1px solid #cccccc;
 }
 
 #pie {
 	 padding: $padding/4 ;
+   height: 400px;
+
   //  border: 1px solid #cccccc;
 }
 
 .graphs {
   // width: 95%;
   padding-left: 2%;
+}
+
+.loading {
+  height: 400px;
+  background-image: url('loading.gif');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+}
+
+.loaded {
+  display: none;
 }
