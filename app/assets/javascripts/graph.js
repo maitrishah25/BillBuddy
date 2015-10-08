@@ -43,6 +43,7 @@ function draw(jsonData){
            .append('span')
            .attr('class', 'info')
            .text(bill.name)
+           .style("display", function(bill) { return bill.paid_status === true ? "none" : true; });
 
          d3.select(this)
            .append('section');
@@ -52,13 +53,11 @@ function draw(jsonData){
        .data(billsData)
        .transition()
        .duration(3000)
-      //  .attr("transform", "translate(" + 80 + "," + 0 + ")")
-      //  .style("postion", "absolute")
-      //  .style("left", (d3.pageX+160) + "px")
        .style(
          'width', function(bill){
            return(bill.amount *0.1) + 'px';
-         });
+         })
+       .style("display", function(bill) { return bill.paid_status === true ? "none" : true; });
 
   field.selectAll('section')
        .data(billsData)
@@ -125,12 +124,14 @@ function pie(jsonData){
               .outerRadius(r)
               .innerRadius(r-30);
   var pie = d3.layout.pie()           //this will create arc data for us given a list of values
-              .value(function(d) { return d.amount; });    //we must tell it out to access the value of each element in our data array
+              .value(function(d) { return d.paid_status === false? d.amount : false; });    //we must tell it out to access the value of each element in our data array
+
   var arcs = vis.selectAll("g.slice")     //this selects all <g> elements with class slice (there aren't any yet)
                 .data(pie)                          //associate the generated pie data (an array of arcs, each having startAngle, endAngle and value properties)
                 .enter()                            //this will create <g> elements for every "extra" data element that should be associated with a selection. The result is creating a <g> for every object in the data array
                 .append("svg:g")                //create a group to hold each slice (we will have a <path> and a <text> element associated with each slice)
-                .attr("class", "slice");    //allow us to style things in the slices (like text)
+                .attr("class", "slice")    //allow us to style things in the slices (like text)
+                // .style("display", function(d,i) { return billsData[i].paid_status === true ? "none" : true; });
 
       arcs.append("svg:path")
           .attr("fill", function(d, i) { return color(i); } ) //set the color for each slice to be chosen from the color function defined above
@@ -154,6 +155,8 @@ function pie(jsonData){
               return (d.endAngle + d.startAngle)/2 > Math.PI ?
                   "end" : "start";
           })
-          .text(function(d, i) { return billsData[i].name; });
+          .text(function(d, i) { return billsData[i].name; })
+          .style("display", function(d,i) { return billsData[i].paid_status === true ? "none" : true; });
+
 
         }
