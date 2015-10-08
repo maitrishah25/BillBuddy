@@ -26,11 +26,15 @@ $mintgreen: #5FECA0;
   background-color: rgba(255, 255, 255, 0);
 }
 
-.tagline {
-  font-size: 1.5em;
+.text {
+  color:white;
   position: relative;
-  top: 5%;
+  top: 13%;
   left: 10%;
+}
+
+.tagline {
+  font-size: 1.8em;
 }
 
 div.new {
@@ -38,22 +42,23 @@ div.new {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 0 -150px;
-  height: 1000px;
+  height: 500px;
   width: 100%;
   background-color: #2A8DCA;
 }
 
 .form {
   position: relative;
-  top: 10%;
+  top: -15%;
   left: 10%;
   height:250px;
   width:450px;
   padding: 25px;
   background-color: #F7F8F8;
   border-radius: 5px;
-  // vertical-align: middle;
-}
+  -webkit-box-shadow: 10px 10px 48px 0px rgba(0,0,0,0.24);
+  -moz-box-shadow: 10px 10px 48px 0px rgba(0,0,0,0.24);
+  box-shadow: 10px 10px 48px 0px rgba(0,0,0,0.24);}
 
 .form-row {
   margin: 10px 0;
