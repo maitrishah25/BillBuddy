@@ -1,9 +1,44 @@
-<h3>Please Log In</h3>
+<div class="bg">
+  <nav class="navbar navbar-inverse" style="padding-top:15px">
+    <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <h4 style="margin:0; color:#3DCFFF">Bill<span style="color:white">Buddy</span></h4>
+          </ul>
+          <!-- <ul class="nav navbar-nav navbar-right">
+            <%= form_tag '/sessions', method: :post do %> -->
+              <!-- <%= label_tag :username %> -->
+              <!-- <%= text_field_tag :username, nil, placeholder: 'Username' %> -->
+              <!-- <%= label_tag :password %> -->
+              <!-- <%= password_field_tag :password, nil, placeholder: 'Password' %>
+              <%= submit_tag "Log In", class: "btn btn-primary outline" %>
+            <% end %>
 
-<%= form_tag '/sessions', method: :post do %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-  <%= label_tag :password %>
-  <%= password_field_tag :password %>
-  <%= submit_tag "Log In"%>
-<% end %>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Log Out", '/sessions', method: :delete %></li>
+            </ul>
+
+          </ul>
+        </div> -->
+      </div>
+  </nav>
+
+  <h3>Please Log In</h3>
+
+  <%= form_tag '/sessions', method: :post do %>
+    <%= label_tag :username %>
+    <%= text_field_tag :username %>
+    <%= label_tag :password %>
+    <%= password_field_tag :password %>
+    <%= submit_tag "Log In"%>
+  <% end %>
+<div class="bg">
