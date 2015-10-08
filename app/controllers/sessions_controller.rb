@@ -16,7 +16,7 @@ class SessionsController < ApplicationController
   #  session DELETE /sessions/:id(.:format)  sessions#destroy
   def destroy
     session[:user_id] = nil
-    redirect_to log_in_path
+    redirect_to new_path
   end
 
 
