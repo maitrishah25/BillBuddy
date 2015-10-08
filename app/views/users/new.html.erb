@@ -29,14 +29,32 @@
       </div>
   </nav>
 
-<!-- <h1 style="margin:0; color:#3DCFFF">Bill<span style="color:white">Buddy</span></h1> -->
+<h1 class="tagline" style="color:white"> Start organizing your finances today.</h1>
+<!-- <form class="" action="/users" method="post">
+  <label for="username">Username</label>
+  <input type="text" name="user[username]" placeholder="Username">
+  <label for="password">Password</label>
+  <input type="text" name="user[password]" placeholder="Password">
+  <input type="submit" class="btn btn-default">
+</form> -->
+<div class="form col-xs-4">
+  <h4>Sign up here</h4>
+  <%= form_for @user do |f| %>
+    <div class="form-row">
+      <!-- <%= f.label :username, :class => 'user-label' %> -->
+      <%= f.text_field :username, :class => 'text-field', :placeholder => 'Username' %>
+    </div>
+    <div class="form-row">
+      <!-- <%= f.label :password, :class => 'user-label' %> -->
+      <%= f.password_field :password, :class => 'text-field', :placeholder => 'Password' %>
+    </div>
+    <div class="form-row">
+      <%= f.submit :class => 'btn btn-default pull-right' %>
+    </div>
+  <% end %>
+</div>
+<div class="gif"></div>
 
-<%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.submit %>
-<% end %>
+
 
 </div>

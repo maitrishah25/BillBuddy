@@ -1,11 +1,3 @@
-// $(document).ready(function() {
-//
-//   console.log('stuff');
-//     $('#graphs').load(function(){
-//       console.log(this);
-//       $(this).removeClass('loading');
-//     });
-// });
 
 $('.datepicker').pickadate();
 

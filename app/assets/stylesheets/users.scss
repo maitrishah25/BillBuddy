@@ -18,19 +18,55 @@ $mintgreen: #5FECA0;
   // background-color: $mintgreen;
 }
 
-h1 {
-  // text-align: center;
+.tagline {
+  font-size: 1.5em;
+  position: relative;
+  top: 5%;
+  left: 10%;
 }
 
 div.new {
-  background-image: url('looking_over_mountain.jpg');
+  // background-image: url('looking_over_mountain.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 0 -150px;
-  height: 800px;
+  height: 1000px;
   width: 100%;
-  // height: 800px;
-  // width: 1200px;
+  background-color: #2A8DCA;
+}
+
+.form {
+  position: relative;
+  top: 10%;
+  left: 10%;
+  height:250px;
+  width:450px;
+  padding: 25px;
+  background-color: #F7F8F8;
+  border-radius: 5px;
+  // vertical-align: middle;
+}
+
+.form-row {
+  margin: 10px 0;
+}
+
+.user-label {
+  width: 80px;
+}
+
+.user-input {
+  width: 260px;
+}
+
+div.gif {
+  background-image: url('ipad2.gif');
+  background-repeat: no-repeat;
+  background-size: 25%;
+  height:350px;
+  position: relative;
+  top: 5%;
+  left: 60%;
 }
 
 h3.welcome {
