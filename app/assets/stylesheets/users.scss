@@ -29,7 +29,7 @@ $mintgreen: #5FECA0;
 .text {
   color:white;
   position: relative;
-  top: 13%;
+  top: 12%;
   left: 10%;
 }
 
@@ -42,7 +42,7 @@ div.bg {
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 0 -150px;
-  height: 500px;
+  height: 550px;
   width: 100%;
   background-color: #2A8DCA;
 }
@@ -63,7 +63,7 @@ div.bg {
 
 .form {
   position: relative;
-  top: -15%;
+  top: -10%;
   left: 10%;
   height:250px;
   width:450px;
@@ -90,11 +90,11 @@ div.bg {
 div.gif {
   background-image: url('ipad2.gif');
   background-repeat: no-repeat;
-  background-size: 25%;
+  background-size: 65%;
   height:350px;
   position: relative;
-  top: 5%;
-  left: 60%;
+  top: 10%;
+  // left: 60%;
 }
 
 h3.welcome {
@@ -125,14 +125,14 @@ form.new-bill {
 #graph {
 	 padding: $padding/3 ;
    height: 400px;
-
+   vertical-align: middle;
   //  border: 1px solid #cccccc;
 }
 
 #pie {
 	 padding: $padding/4 ;
    height: 400px;
-
+   vertical-align: middle;
   //  border: 1px solid #cccccc;
 }
 
@@ -152,6 +152,11 @@ form.new-bill {
   display: none;
 }
 
+// .btn-link {
+//   border: 1px solid white;
+//   border-radius: 3px;
+//   padding: 2px 12px;
+// }
 .btn {
     padding: 14px 24px;
     border: 0 none;

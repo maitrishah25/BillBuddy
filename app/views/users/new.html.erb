@@ -1,5 +1,5 @@
 <div class="bg">
-  <nav class="navbar navbar-inverse" style="padding-top:15px">
+  <nav class="navbar navbar-inverse" >
     <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -12,15 +12,15 @@
     </div>
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <h4 style="margin:0; color:#3DCFFF">Bill<span style="color:white">Buddy</span></h4>
+            <h4 style="margin:0; color:#3DCFFF; padding-top:15px">Bill<span style="color:white">Buddy</span></h4>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
+          <ul class="nav navbar-nav navbar-right" style="padding-top:10px">
             <%= form_tag '/sessions', method: :post do %>
               <!-- <%= label_tag :username %> -->
               <%= text_field_tag :username, nil, placeholder: 'Username' %>
               <!-- <%= label_tag :password %> -->
               <%= password_field_tag :password, nil, placeholder: 'Password' %>
-              <%= submit_tag "Log In", class: "btn btn-primary outline" %>
+              <%= submit_tag "Log In", class: "btn btn-link" %>
             <% end %>
 
             <ul class="dropdown-menu">
@@ -31,15 +31,15 @@
         </div>
       </div>
   </nav>
-<div class="text col-xs-5">
+<div class="text col-sm-7 col-xs-12">
   <h1 class="tagline" style="color:white"> Start organizing your finances today.</h1><br>
   <p>BillBuddy is a personal bill management platform.<br><br>
     You can track all of your open bills, see when they are due,<br>
     and visualize your bill data in one place.
   </p>
 </div>
-<div class="gif"></div>
-<div class="form col-xs-4">
+<div class="gif col-sm-5 col-xs-12"></div>
+<div class="form col-sm-4 col-xs-12">
   <h4>Sign up here</h4>
   <%= form_for @user do |f| %>
     <div class="form-row">
