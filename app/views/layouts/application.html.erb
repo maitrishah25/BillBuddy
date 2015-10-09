@@ -10,9 +10,27 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
   <style>
-  @media and (max-device-width: 480px) {
-    body {
-      background-color: red;
+  @media (max-device-width: 480px) {
+    div.gif {
+      background-size: 90%;
+      position: relative;
+      left: 6%;
+      top: -18%;
+      height: 400px;
+    }
+    div.bg {
+      height: 1000px;
+    }
+    .text {
+      color:white;
+      position: relative;
+      top: 42%;
+      left: 5%;
+      /*text-align: center;*/
+    }
+    .form {
+      top: 5%;
+      left: 0%;
     }
 	}
   </style>
