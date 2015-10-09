@@ -1,5 +1,5 @@
 <input type="hidden" id="api-token" value="<%= @user.token %>">
-<nav class="navbar navbar-inverse" style="padding-top:15px">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
   <!-- Brand and toggle get grouped for better mobile display -->
   <div class="navbar-header">
@@ -9,12 +9,13 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
+    <h4 class="navbar-brand" style="margin:0; color:#3DCFFF">Bill<span style="color:white">Buddy</span></h4>
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
+        <!-- <ul class="nav navbar-nav">
           <h4 style="margin:0; color:#3DCFFF">Bill<span style="color:white">Buddy</span></h4>
-        </ul>
-        <ul class="nav navbar-nav navbar-right" style="color:white">
+        </ul> -->
+        <ul class="nav navbar-nav navbar-right" style="color:white; padding-top:15px">
           <span class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Signed in as <%= @user.username %> <i class="caret"></i>
           </span>
           <ul class="dropdown-menu">
@@ -31,15 +32,15 @@
 </header>
 
 <div id="graphs" class="row graphs">
-  <div id="graph" class="col-xs-6 loading"></div>
-  <div id="pie" class="col-xs-4 loading"></div>
+  <div id="graph" class="col-sm-6 col-xs-12 loading"></div>
+  <div id="pie" class="col-sm-4 col-xs-12 loading"></div>
 </div>
 
 <div>
   <form class="new-bill" action="/api/bills" method="post">
-    <span class="row"><input type="text" class="text-field col-xs-6" name="bill[name]" placeholder="Name"></span>
-    <span class="row"><input type="text" class="text-field datepicker col-xs-6" name="bill[due_date]" placeholder="Due Date"></span>
-    <span class="row"><input type="text" class="text-field col-xs-6" name="bill[amount]" placeholder="Amount"></span>
+    <span class="row"><input type="text" class="text-field col-sm-6 col-xs-12" name="bill[name]" placeholder="Name"></span>
+    <span class="row"><input type="text" class="text-field datepicker col-sm-6 col-xs-12" name="bill[due_date]" placeholder="Due Date"></span>
+    <span class="row"><input type="text" class="text-field col-sm-6 col-xs-12" name="bill[amount]" placeholder="Amount"></span>
     <span class="row"><input type="submit" value="New Bill" class="button btn btn-default"></span>
   </form>
 </div>
