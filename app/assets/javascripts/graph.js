@@ -25,7 +25,8 @@ $.ajax({
 function draw(jsonData){
 
   var billsData = jsonData;
-  var field = d3.select('#graph');
+  var field = d3.select('#graph').append('div')
+                .attr('class', 'thing');
   var margin = {top: 40, right: 20, bottom: 30, left: 40},
       width = 575 - margin.left - margin.right,
       height = 50 - margin.top - margin.bottom;
