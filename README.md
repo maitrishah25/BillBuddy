@@ -4,6 +4,8 @@ BillBuddy is a Ruby on Rails web application that allows users to keep track of 
 
 ![demo](app/assets/images/mobile-home.png)
 
+![demo](app/assets/images/mobile-profile.png)
+
 - Responsive and optimized for desktop and mobile
 - Ruby on Rails application
 - D3.js to render graphical data
