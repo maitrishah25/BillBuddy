@@ -2,7 +2,7 @@
 
 BillBuddy is a Ruby on Rails web application that allows users to keep track of all of their expenses in one place.
 
-![demo](app/assets/images/ipad2.gif)
+![demo](app/assets/images/mobile-home.png)
 
 - Responsive and optimized for desktop and mobile
 - Ruby on Rails application
